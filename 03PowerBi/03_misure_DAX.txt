@@ -1,0 +1,61 @@
+MISURE DAX – Costo della Vita Dashboard 🏙️
+Tabelle: zone, province, redditi, case_prezzi, fasce
+Filtro: zone[zona] (pulsanti Nord, Centro, Sud, Isole), collegato a tutte le tabelle
+
+Colore Zona   (tabella zone) =
+    SELECTEDVALUE ( zone[colore], "#1F7A8C" )
+
+Reddito Medio   (tabella province) =
+    AVERAGE ( province[reddito_medio] )
+    formato: #,##0" €"
+
+Prezzo Casa   (tabella province) =
+    AVERAGE ( province[prezzo_casa_mq] )
+    formato: #,##0" €/m²"
+
+Anni Casa   (tabella province) =
+    AVERAGE ( province[anni_reddito_casa] )
+    formato: 0.0" anni"
+
+Pieno Pct   (tabella province) =
+    AVERAGE ( province[pieno_pct_reddito_mese] ) / 100
+    formato: 0.0%
+
+Crescita Redditi   (tabella province) =
+    AVERAGE ( province[crescita_reddito_pct] ) / 100
+    formato: +0.0%;-0.0%
+
+Crescita Case   (tabella province) =
+    AVERAGE ( province[crescita_casa_pct] ) / 100
+    formato: +0.0%;-0.0%
+
+Indice Costo   (tabella province) =
+    AVERAGE ( province[indice_costo] )
+    formato: 0
+
+Colore Giudizio   (tabella province) =
+    SWITCH ( SELECTEDVALUE ( province[giudizio] ),
+        "Rende di più", "#2A9D8F",
+        "Nella media", "#E9C46A",
+        "Rende di meno", "#C65D3B",
+        "#8A9099" )
+
+N Province   (tabella province) =
+    COUNTROWS ( province )
+    formato: 0
+
+Reddito Anno   (tabella redditi) =
+    AVERAGE ( redditi[reddito_medio] )
+    formato: #,##0" €"
+
+Prezzo Anno   (tabella case_prezzi) =
+    AVERAGE ( case_prezzi[prezzo_mq] )
+    formato: #,##0" €/m²"
+
+Quota Fascia   (tabella fasce) =
+    DIVIDE ( SUM ( fasce[n_contribuenti] ),
+             CALCULATE ( SUM ( fasce[n_contribuenti] ), REMOVEFILTERS ( fasce[fascia], fasce[n_fascia] ) ) )
+    formato: 0.0%
+
+📌 Le misure "Colore ..." danno il colore ai grafici (mappa e barre).
+📌 I nomi delle misure sono diversi dai nomi delle colonne.

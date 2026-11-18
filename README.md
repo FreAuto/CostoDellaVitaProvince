@@ -1,5 +1,7 @@
 # 🏙️ Il costo della vita nelle province italiane
 
+![Costo della vita](copertina.png)
+
 Progetto di **Francesco Autorino** – Data Analyst.
 
 🛠️ Strumenti: **Python · Excel · Power BI**
@@ -103,34 +105,16 @@ MIMIT benzina ───────┘   (1GrezziNonPuliti)                 (2Pu
 
 ---
 
-## 📁 5. I file in questo repository
+## 📁 5. Le cartelle del progetto
 
-| File | A cosa serve |
+| Cartella | Cosa contiene |
 |---|---|
-| `README.md` | Questo file |
-| `DESCRIZIONE_GITHUB.md` | Nome, descrizione e topics del repository |
-| `00_LEGGIMI.md` (in ogni cartella) | Una spiegazione corta di quella cartella |
-
-### 📂 01Python
-
-| File | A cosa serve |
-|---|---|
-| `01_analisi_costo_della_vita.ipynb` | 📓 L'analisi completa con 9 grafici (si legge anche su GitHub) |
-| `02_CONCLUSIONI.md` | ✅ Le risposte alle 5 domande |
-
-### 📂 02Excel
-
-| File | A cosa serve |
-|---|---|
-| `01_Costo_Della_Vita_Analisi.xlsx` | 📗 10 fogli: riepilogo, **confronto tra 2 province**, **calcolatore**, classifiche per zona e anno |
-
-### 📂 03PowerBi
-
-| File | A cosa serve |
-|---|---|
-| `01_CostoDellaVitaDashboard.zip` | ⭐ **La dashboard**: estrai lo zip e apri `CostoDellaVita_Dashboard.pbip` con Power BI Desktop |
-| `02_CostoDellaVita_Dashboard.pdf` | 📄 La dashboard in PDF |
-| `03_misure_DAX.txt` | 🧮 Le 13 misure DAX |
+| `01RaccoltaDati` | 🐍 `01_scarica.py` (scarica i dati) e `02_pulizia.py` (pulisce e calcola gli indicatori) |
+| `02Dati` | ❌ `1GrezziNonPuliti` (dati scaricati) e ✅ `2Puliti` (5 tabelle pulite + `registro_pulizia.csv`) |
+| `03Python` | 📓 `analisi_costo_della_vita.ipynb`, `CONCLUSIONI.md`, i 9 grafici in `Grafici` |
+| `04Excel` | 📗 `Costo_Della_Vita_Analisi.xlsx` e lo script che lo crea |
+| `05PowerBi` | 📊 `CostoDellaVitaDashboard` (apri il `.pbip`), il PDF, `misure_DAX.txt`, tema, sfondo e script |
+| `GitHub` | 🚀 La versione leggera da caricare su GitHub |
 
 📊 **Le 5 pagine della dashboard**
 
@@ -144,13 +128,13 @@ MIMIT benzina ───────┘   (1GrezziNonPuliti)                 (2Pu
 
 ---
 
-## 📦 6. Dati e script
+## ▶️ 6. Come rifare tutto
 
-📌 Qui ci sono solo i **risultati**: analisi, file Excel e dashboard.
-
-📥 I dati si possono riscaricare dalle fonti (link più sotto).
-
-🐍 Gli script Python di raccolta e pulizia dei dati sono disponibili su richiesta.
+1. `python 01RaccoltaDati/01_scarica.py` → scarica i dati (i redditi MEF si scaricano dal sito nel browser)
+2. `python 01RaccoltaDati/02_pulizia.py` → crea le tabelle in `02Dati/2Puliti`
+3. `python 03Python/crea_notebook.py` → crea ed esegue il notebook
+4. `python 04Excel/crea_excel.py` → crea il file Excel
+5. `python 05PowerBi/Script/crea_immagini.py` e `crea_powerbi.py` → creano la dashboard
 
 ---
 
